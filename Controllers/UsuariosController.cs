@@ -32,6 +32,12 @@ namespace Api.Controllers
             UsuariosModel usuario = await _usuariosRepositorio.InsertUsuario(usuarioModel);
             return Ok(usuario);
         }
+        [HttpPost("Login")]
+        public async Task<ActionResult<UsuariosModel>> Login(string email, string password)
+        {
+            UsuariosModel usuario = await _usuariosRepositorio.Login(email, password);
+            return Ok(usuario);
+        }
         [HttpPut("UpdateUsuario/{id:int}")]
         public async Task<ActionResult<UsuariosModel>> UpdateUsuario(int id, [FromBody] UsuariosModel usuarioModel)
         {
