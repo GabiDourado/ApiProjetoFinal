@@ -1,6 +1,7 @@
 ﻿using Api.Models;
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Api.Controllers
 {
@@ -33,11 +34,20 @@ namespace Api.Controllers
             return Ok(usuario);
         }
         [HttpPost("Login")]
-        public async Task<ActionResult<UsuariosModel>> Login(string email, string password)
+        public async Task<bool> Login(string usuarioEmail, string usuarioSenha)
         {
-            UsuariosModel usuario = await _usuariosRepositorio.Login(email, password);
-            return Ok(usuario);
+            UsuariosModel usuario = await _usuariosRepositorio.Login(usuarioEmail, usuarioSenha);
+            if(usuario != null)
+            {
+                return (true);
+            }
+            else
+            {
+                return (false);
+            }
+            
         }
+
         [HttpPut("UpdateUsuario/{id:int}")]
         public async Task<ActionResult<UsuariosModel>> UpdateUsuario(int id, [FromBody] UsuariosModel usuarioModel)
         {
