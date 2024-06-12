@@ -34,17 +34,10 @@ namespace Api.Controllers
             return Ok(usuario);
         }
         [HttpPost("Login")]
-        public async Task<bool> Login(string usuarioEmail, string usuarioSenha)
+        public async Task<ActionResult<UsuariosModel>> Login([FromBody] UsuariosModel usuarioModel)
         {
-            UsuariosModel usuario = await _usuariosRepositorio.Login(usuarioEmail, usuarioSenha);
-            if(usuario != null)
-            {
-                return (true);
-            }
-            else
-            {
-                return (false);
-            }
+            UsuariosModel usuario = await _usuariosRepositorio.Login(usuarioModel.UsuarioEmail, usuarioModel.UsuarioSenha);
+            return Ok(usuario);
             
         }
 
