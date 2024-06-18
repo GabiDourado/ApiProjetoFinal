@@ -10,8 +10,8 @@
         public string AnimalSexo { get; set; } = string.Empty;
         public string AnimalObservacao { get; set; } = string.Empty;
         public string AnimalFoto { get; set; } = string.Empty;
-        public DateTime AnimalDtDesaparecimento { get; set; }
-        public DateTime? AnimalDtEncontro { get; set; }
+        public string AnimalDtDesaparecimento { get; set; } = string.Empty;
+        public string? AnimalDtEncontro { get; set; } = string.Empty;
         public byte AnimalStatus { get; set; }
         public int UsuarioId { get; set; }
 

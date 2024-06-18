@@ -5,7 +5,7 @@
         public int ObservacoesId { get; set; }
         public string ObservacaoDescricao { get; set; } = string.Empty;
         public string ObservacaoLocal { get; set; } = string.Empty;
-        public DateTime ObservacaoData { get; set; }
+        public string ObservacaoData { get; set; } = string.Empty;
         public int AnimaisId { get; set; }
         public int UsuarioId { get; set; }
 
